@@ -12,6 +12,8 @@ import Login from './pages/Login/Login';
 import Register from './pages/Home/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import { ToastContainer } from 'react-toastify';
+import Profile from './pages/profile/Profile';
+import PrivateRoute from './Route/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,27 @@ const router = createBrowserRouter([
       },
       {
         path: '/addAJob',
-        element: <AddAJob></AddAJob>,
+        element: (
+          <PrivateRoute>
+            <AddAJob></AddAJob>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/myTask',
-        element: <MyTask></MyTask>,
+        element: (
+          <PrivateRoute>
+            <MyTask></MyTask>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/profile',
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/login',

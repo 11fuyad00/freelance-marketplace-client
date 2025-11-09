@@ -11,7 +11,6 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext);
 
-  // Scroll handler
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
@@ -21,23 +20,26 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'All Jobs', path: '/allJobs' },
-    { name: 'Add a Job', path: '/addAJob' },
-    { name: 'My Tasks', path: '/myTask' },
+    ...(user
+      ? [
+          { name: 'Add a Job', path: '/addAJob' },
+          { name: 'My Accepted Tasks', path: '/MyTask' },
+          { name: 'Profile', path: '/profile' },
+        ]
+      : []),
   ];
 
   const isActive = path => location.pathname === path;
 
-  // Logout function with Toast
   const handleLogout = async () => {
     try {
       await logOut();
       toast.success('Logout successful');
     } catch (error) {
-      toast.error('Logout failed', error.message);
+      toast.error('Logout failed: ' + error.message);
     }
   };
 
-  // Common button style
   const buttonStyle =
     'px-6 py-2.5 rounded-lg font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center block';
 
@@ -98,15 +100,21 @@ const Navbar = () => {
         {/* USER BUTTONS */}
         <div className="hidden lg:flex items-center space-x-3">
           {user ? (
-            <div className="flex items-center gap-3">
-              <img
-                src={user.photoURL || 'https://i.ibb.co/2NBGVHJ/user.png'}
-                alt="user"
-                className="w-8 h-8 rounded-full border"
-              />
-              <span className="text-sm font-medium text-gray-700">
-                {user.displayName || 'User'}
-              </span>
+            <div className="flex items-center gap-3 relative group">
+              <Link
+                to="/profile"
+                className="relative flex flex-col items-center"
+              >
+                <img
+                  src={user.photoURL || 'https://i.ibb.co/2NBGVHJ/user.png'}
+                  alt="user"
+                  className="w-9 h-9 rounded-full border cursor-pointer transition-transform duration-300 group-hover:scale-105"
+                />
+                {/* Hover করলে নিচে নাম দেখাবে */}
+                <span className="absolute top-12 left-1/2 -translate-x-1/2 bg-white px-3 py-1 text-xs font-medium text-gray-700 rounded-lg shadow opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  {user.displayName || 'User'}
+                </span>
+              </Link>
               <button onClick={handleLogout} className={buttonStyle}>
                 Logout
               </button>
@@ -132,32 +140,44 @@ const Navbar = () => {
         </div>
 
         {/* MOBILE MENU BUTTON */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden p-2 rounded-md border border-gray-200"
-        >
-          {menuOpen ? (
-            <svg
-              className="w-6 h-6 text-indigo-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M6 18L18 6M6 6l12 12"
+        <div className="flex items-center gap-3 lg:hidden">
+          {/* ✅ Mobile এ user photo দেখাবে */}
+          {user && (
+            <Link to="/profile">
+              <img
+                src={user.photoURL || 'https://i.ibb.co/2NBGVHJ/user.png'}
+                alt="user"
+                className="w-8 h-8 rounded-full border"
               />
-            </svg>
-          ) : (
-            <div className="space-y-1">
-              <div className="w-5 h-0.5 bg-gray-700"></div>
-              <div className="w-5 h-0.5 bg-gray-700"></div>
-              <div className="w-5 h-0.5 bg-gray-700"></div>
-            </div>
+            </Link>
           )}
-        </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 rounded-md border border-gray-200"
+          >
+            {menuOpen ? (
+              <svg
+                className="w-6 h-6 text-indigo-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <div className="space-y-1">
+                <div className="w-5 h-0.5 bg-gray-700"></div>
+                <div className="w-5 h-0.5 bg-gray-700"></div>
+                <div className="w-5 h-0.5 bg-gray-700"></div>
+              </div>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* MOBILE MENU */}

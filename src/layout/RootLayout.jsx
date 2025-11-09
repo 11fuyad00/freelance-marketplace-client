@@ -9,7 +9,7 @@ const RootLayout = () => {
       <header>
         <Navber></Navber>
       </header>
-      <main>
+      <main className="pt-24">
         <Outlet></Outlet>
       </main>
       <Footer></Footer>

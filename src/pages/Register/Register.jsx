@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FiMail, FiLock, FiEye, FiEyeOff, FiUser } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import googleImg from './google_356049.png';
-import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 
 const Register = () => {
   const { createUser, signInWithGoogle, updateUserProfile } =

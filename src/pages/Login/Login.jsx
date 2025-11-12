@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate, useLocation } from 'react-router';
 import { motion } from 'framer-motion';
 import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import { toast } from 'react-toastify';
@@ -10,6 +10,10 @@ const Login = () => {
   const { signInUser, signInWithGoogle, sendPasswordReset } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Capture redirect path from PrivateRoute
+  const from = location.state?.from?.pathname || '/';
 
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +33,7 @@ const Login = () => {
     try {
       await signInUser(formData.email, formData.password);
       toast.success('Successfully logged in!');
-      navigate('/');
+      navigate(from, { replace: true }); // Redirect to original path
     } catch (error) {
       console.error('Login error:', error);
       handleFirebaseError(error);
@@ -59,7 +63,7 @@ const Login = () => {
       }).catch(err => console.error('DB Save Error:', err));
 
       toast.success('Successfully logged in with Google!');
-      navigate('/');
+      navigate(from, { replace: true }); // Redirect to original path
     } catch (error) {
       console.error('Google login error:', error);
       handleFirebaseError(error);
@@ -68,7 +72,6 @@ const Login = () => {
     }
   };
 
-  //  Passwrd reset
   const handleResetPassword = async e => {
     e.preventDefault();
     if (!resetEmail) return toast.error('Please enter your email');
@@ -118,6 +121,7 @@ const Login = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-300 to-blue-400 overflow-hidden p-4">
+      {/* Background animations */}
       <motion.div
         className="absolute w-96 h-96 bg-purple-300 rounded-full opacity-30 top-[-15%] left-[-10%]"
         animate={{ x: [0, 50, 0], y: [0, 50, 0] }}
@@ -154,7 +158,6 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
               <FiMail className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
-              {/* email */}
               <input
                 name="email"
                 type="email"
@@ -168,7 +171,6 @@ const Login = () => {
 
             <div className="relative">
               <FiLock className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
-              {/* password */}
               <input
                 name="password"
                 type={showPassword ? 'text' : 'password'}

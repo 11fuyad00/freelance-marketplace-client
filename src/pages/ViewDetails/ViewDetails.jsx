@@ -64,7 +64,9 @@ const ViewDetails = () => {
 
   const fetchJob = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/jobs/${id}`);
+      const res = await fetch(
+        `https://freelance-marketplace-kohl.vercel.app/jobs/${id}`
+      );
       if (res.ok) {
         const data = await res.json();
         setJob({ ...defaultJob, ...data });
@@ -107,11 +109,14 @@ const ViewDetails = () => {
         userName: user.displayName || user.name || 'User',
       };
 
-      const res = await fetch(`http://localhost:3000/jobs/${id}/accept`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(acceptData),
-      });
+      const res = await fetch(
+        `https://freelance-marketplace-kohl.vercel.app/jobs/${id}/accept`,
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(acceptData),
+        }
+      );
 
       const data = await res.json();
 

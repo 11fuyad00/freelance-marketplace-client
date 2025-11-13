@@ -30,7 +30,7 @@ const Register = () => {
   };
 
   const saveUserToDB = userData => {
-    return fetch('http://localhost:3000/users', {
+    return fetch('https://freelance-marketplace-kohl.vercel.app/users', {
       // Correct endpoint
       method: 'POST',
       headers: { 'content-type': 'application/json' },

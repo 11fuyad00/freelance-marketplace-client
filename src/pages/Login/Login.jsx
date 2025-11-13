@@ -56,7 +56,7 @@ const Login = () => {
         createdAt: new Date().toISOString(),
       };
 
-      await fetch('http://localhost:3000/users', {
+      await fetch('https://freelance-marketplace-kohl.vercel.app/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUser),

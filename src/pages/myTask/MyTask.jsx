@@ -17,7 +17,7 @@ const MyTask = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/my-accepted-tasks?email=${user.email}`
+        `https://freelance-marketplace-kohl.vercel.app/my-accepted-tasks?email=${user.email}`
       );
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
@@ -39,11 +39,14 @@ const MyTask = () => {
 
   const handleTaskAction = async (taskId, action) => {
     try {
-      const res = await fetch(`http://localhost:3000/jobs/${taskId}/done`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action }),
-      });
+      const res = await fetch(
+        `https://freelance-marketplace-kohl.vercel.app/jobs/${taskId}/done`,
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action }),
+        }
+      );
 
       if (res.ok) {
         if (action === 'done') {

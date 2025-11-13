@@ -70,11 +70,14 @@ const AddAJob = () => {
     console.log('Submitting job:', jobData); // ✅ debug
 
     try {
-      const res = await fetch('http://localhost:3000/jobs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(jobData),
-      });
+      const res = await fetch(
+        'https://freelance-marketplace-kohl.vercel.app/jobs',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(jobData),
+        }
+      );
 
       if (res.ok) {
         toast.success('🎉 Job posted successfully!');

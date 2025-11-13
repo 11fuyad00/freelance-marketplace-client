@@ -30,7 +30,9 @@ const LatestJobs = () => {
   useEffect(() => {
     (async () => {
       try {
-        const r = await fetch('http://localhost:3000/jobs/latest');
+        const r = await fetch(
+          'https://freelance-marketplace-kohl.vercel.app/jobs/latest'
+        );
         if (!r.ok) throw new Error('Failed to fetch jobs');
         setJobs(await r.json());
       } catch (e) {

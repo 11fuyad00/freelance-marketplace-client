@@ -23,7 +23,9 @@ const MyAddedJobs = () => {
     if (!user?.email) return;
     (async () => {
       try {
-        const res = await fetch('http://localhost:3000/jobs');
+        const res = await fetch(
+          'https://freelance-marketplace-kohl.vercel.app/jobs'
+        );
         const data = await res.json();
         setJobs(
           data.filter(
@@ -52,11 +54,14 @@ const MyAddedJobs = () => {
   const handleUpdate = async e => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/jobs/${editingJob._id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...editingJob, ...formData }),
-      });
+      const res = await fetch(
+        `https://freelance-marketplace-kohl.vercel.app/jobs/${editingJob._id}`,
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...editingJob, ...formData }),
+        }
+      );
       const data = await res.json();
       if (data.modifiedCount > 0) {
         toast.success('🎉 Job updated successfully!');
@@ -81,9 +86,12 @@ const MyAddedJobs = () => {
   const confirmDelete = async () => {
     if (!jobToDelete) return;
     try {
-      const res = await fetch(`http://localhost:3000/jobs/${jobToDelete._id}`, {
-        method: 'DELETE',
-      });
+      const res = await fetch(
+        `https://freelance-marketplace-kohl.vercel.app/jobs/${jobToDelete._id}`,
+        {
+          method: 'DELETE',
+        }
+      );
       const data = await res.json();
       if (data.deletedCount > 0) {
         toast.success('🗑️ Job deleted successfully!');

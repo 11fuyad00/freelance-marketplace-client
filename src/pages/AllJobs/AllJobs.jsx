@@ -16,7 +16,7 @@ const AllJobs = () => {
     const fetchAllJobs = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/jobs?sort=${sortOrder}`
+          `https://freelance-marketplace-kohl.vercel.app/jobs?sort=${sortOrder}`
         );
         if (!response.ok) throw new Error('Failed to fetch jobs');
         const data = await response.json();

@@ -46,7 +46,7 @@ const ThemeToggle = () => {
           </svg>
         ) : (
           <svg
-            className="w-4 h-4 text-white" // Changed to white for better contrast on black background
+            className="w-4 h-4 text-white"
             fill="currentColor"
             viewBox="0 0 20 20"
           >

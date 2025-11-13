@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Capture redirect path from PrivateRoute
+  //  redirect path from PrivateRoute
   const from = location.state?.from?.pathname || '/';
 
   const [formData, setFormData] = useState({ email: '', password: '' });

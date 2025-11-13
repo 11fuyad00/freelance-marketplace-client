@@ -1,4 +1,3 @@
-// components/PlatformStats.jsx
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -23,7 +22,6 @@ const AnimatedCounter = ({ end, suffix = '', duration = 2 }) => {
     if (inView) start();
   }, [inView, start]);
 
-  // attach intersection observer to same element
   return (
     <span
       ref={node => {

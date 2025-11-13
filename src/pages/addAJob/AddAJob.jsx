@@ -61,13 +61,13 @@ const AddAJob = () => {
     const jobData = {
       ...formData,
       postedBy: user.displayName || user.name || 'Anonymous',
-      userEmail: user.email.toLowerCase(), // lowercase for consistent matching
+      userEmail: user.email.toLowerCase(),
       status: 'open',
       created_at: new Date().toISOString(),
       tags: formData.tags ? formData.tags.split(',').map(t => t.trim()) : [],
     };
 
-    console.log('Submitting job:', jobData); // ✅ debug
+    console.log('Submitting job:', jobData);
 
     try {
       const res = await fetch(

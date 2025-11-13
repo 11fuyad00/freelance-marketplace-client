@@ -47,7 +47,6 @@ const AuthProvider = ({ children }) => {
         photoURL: photoURL || '',
       });
 
-      // Immediately update local state
       setUser({
         ...auth.currentUser,
         displayName: name,

@@ -1,4 +1,3 @@
-// Categories.jsx
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 

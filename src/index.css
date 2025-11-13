@@ -5,7 +5,6 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-/* ✅ Add this CSS for automatic dark mode */
 [data-theme='dark'] {
   background-color: #1f2937;
   color: #f9fafb;
@@ -39,7 +38,6 @@
   border-color: #4b5563 !important;
 }
 
-/* ✅ Keep gradients unchanged */
 [data-theme='dark'] .bg-gradient-to-br {
   /* ✅ Elegant Black & Purple */
   background-image: linear-gradient(
@@ -50,7 +48,6 @@
   ) !important;
 }
 
-/* ✅ Add this for your specific purple-pink-blue gradient */
 [data-theme='dark'] .bg-gradient-to-r.from-purple-400.via-pink-300.to-blue-400 {
   /* ✅ Best Choice - Dark & Rich */
   background-image: linear-gradient(

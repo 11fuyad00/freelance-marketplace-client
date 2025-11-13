@@ -5,7 +5,6 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// ✅ ThemeToggle Component with sliding icon effect
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(() => {
     return (
@@ -29,7 +28,6 @@ const ThemeToggle = () => {
       onClick={toggleTheme}
       className="relative w-14 h-8 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full p-1 flex items-center cursor-pointer shadow-lg"
     >
-      {/* Sliding circle */}
       <motion.div
         layout
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
@@ -124,7 +122,9 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, type: 'spring' }}
       className={`fixed top-0 left-0 w-full z-50 backdrop-blur-2xl transition-all duration-500 ${
-        isScrolled ? 'bg-white/95 shadow-2xl' : 'bg-white/90'
+        isScrolled
+          ? 'bg-white/95 dark:bg-black/95 shadow-2xl'
+          : 'bg-white/90 dark:bg-black/90'
       }`}
     >
       <div className="w-11/12 mx-auto flex items-center justify-between h-20 relative">
@@ -157,7 +157,6 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-3">
           {navLinks.map(link => (
             <Link
@@ -166,7 +165,7 @@ const Navbar = () => {
               className={`px-4 py-2 rounded-xl font-bold transition-all duration-300 flex items-center ${
                 isActive(link.path)
                   ? 'bg-gradient-to-r from-cyan-200 to-purple-200 text-gray-800'
-                  : 'text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-purple-500/10'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-white dark:hover:text-white hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-purple-500/10'
               }`}
             >
               <span className="mr-2">{link.icon}</span>
@@ -175,7 +174,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* User / Auth */}
         <div className="hidden lg:flex items-center gap-4">
           <ThemeToggle />
 
@@ -185,12 +183,12 @@ const Navbar = () => {
                 <img
                   src={user.photoURL || 'https://i.ibb.co/2NBGVHJ/user.png'}
                   alt="user"
-                  className="w-12 h-12 rounded-full border-2 border-white shadow-lg cursor-pointer"
+                  className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-800 shadow-lg cursor-pointer"
                 />
                 <span className="absolute top-14 left-1/2 -translate-x-1/2 bg-gradient-to-r from-slate-700 to-blue-600 text-white px-3 py-2 rounded-xl text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-2xl font-semibold">
                   👋 {user.displayName || 'Welcome Back!'}
                 </span>
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full animate-pulse"></span>
+                <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full animate-pulse"></span>
               </Link>
               <Button onClick={handleLogout}>🚪 Logout</Button>
             </div>
@@ -206,7 +204,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile Menu */}
         <div className="flex items-center lg:hidden gap-3">
           <ThemeToggle />
           {user && (
@@ -214,7 +211,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL || 'https://i.ibb.co/2NBGVHJ/user.png'}
                 alt="user"
-                className="w-10 h-10 rounded-full border-2 border-white shadow-lg"
+                className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
               />
             </Link>
           )}
@@ -227,14 +224,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden bg-white/95 backdrop-blur-xl rounded-3xl shadow-lg p-5 mt-2 mx-4 space-y-3"
+            className="lg:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl rounded-3xl shadow-lg p-5 mt-2 mx-4 space-y-3"
           >
             {navLinks.map(link => (
               <Link
@@ -244,7 +240,7 @@ const Navbar = () => {
                 className={`flex items-center px-4 py-3 rounded-xl font-bold transition-all duration-300 ${
                   isActive(link.path)
                     ? 'bg-gradient-to-r from-cyan-200 to-purple-200 text-gray-800'
-                    : 'text-gray-700 hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-purple-500/10'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-purple-500/10'
                 }`}
               >
                 <span className="text-xl mr-2">{link.icon}</span>

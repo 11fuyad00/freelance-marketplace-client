@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 const Footer = () => {
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-blue-900 text-white pt-20 pb-10 overflow-hidden ">
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
         <div className="absolute top-1/3 -right-8 w-24 h-24 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-xl opacity-30 animate-bounce"></div>
@@ -13,9 +12,7 @@ const Footer = () => {
       </div>
 
       <div className="relative w-11/12 mx-auto z-10">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {/* Company Info with Floating Animation */}
           <div className="lg:col-span-1 transform hover:scale-105 transition-transform duration-500">
             <Link
               to="/"
@@ -103,7 +100,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links with Hover Effects */}
           <div className="transform hover:scale-105 transition-transform duration-500">
             <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent">
               Quick Links
@@ -132,7 +128,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Categories with Colorful Dots */}
           <div className="transform hover:scale-105 transition-transform duration-500">
             <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
               Categories
@@ -172,7 +167,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter with Glow Effect */}
           <div className="transform hover:scale-105 transition-transform duration-500">
             <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-pink-300 to-rose-300 bg-clip-text text-transparent">
               Stay Updated
@@ -197,7 +191,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Footer with Animated Border */}
         <div className="relative border-t border-white/20 pt-8">
           <div className="absolute top-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full animate-pulse"></div>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -225,7 +218,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Floating CTA Button with Pulse Animation */}
       <div className="fixed bottom-8 right-8 z-50 animate-bounce hover:animate-none">
         <button className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>

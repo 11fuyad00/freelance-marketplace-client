@@ -1,4 +1,3 @@
-// Home.jsx
 import { motion } from 'framer-motion';
 import Banner from './Banner';
 import LatestJobs from './LatestJobs';

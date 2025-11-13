@@ -1,22 +1,37 @@
 // components/PlatformStats.jsx
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useCountUp } from 'react-countup';
 
 const AnimatedCounter = ({ end, suffix = '', duration = 2 }) => {
-  const [inView] = useInView({
+  const ref = useRef(null);
+  const [inViewRef, inView] = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });
 
-  const { countUpRef } = useCountUp({
-    ref: countUpRef,
-    end: inView ? end : 0,
-    duration,
+  const { start } = useCountUp({
+    ref: ref,
+    end,
     suffix,
+    duration,
+    startOnMount: false,
   });
 
-  return <span ref={countUpRef} />;
+  useEffect(() => {
+    if (inView) start();
+  }, [inView, start]);
+
+  // attach intersection observer to same element
+  return (
+    <span
+      ref={node => {
+        ref.current = node;
+        inViewRef(node);
+      }}
+    />
+  );
 };
 
 const PlatformStats = () => {
@@ -60,27 +75,17 @@ const PlatformStats = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
   const itemVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.5,
-      rotateY: 90,
-    },
+    hidden: { opacity: 0, scale: 0.5, rotateY: 90 },
     visible: {
       opacity: 1,
       scale: 1,
       rotateY: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 15,
-      },
+      transition: { type: 'spring', stiffness: 100, damping: 15 },
     },
   };
 

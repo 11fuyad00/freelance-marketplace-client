@@ -90,19 +90,10 @@ top-tier talent worldwide.
 | ![Cyan-400](https://via.placeholder.com/15/22D3EE/000000?text=+)   | `#22D3EE` | Primary    |
 | ![Purple-400](https://via.placeholder.com/15/A78BFA/000000?text=+) | `#A78BFA` | Secondary  |
 
-## 📦 Installation & Setup
-
-### Prerequisites
-
-- Node.js 16.0 or higher
-- npm or yarn package manager
-- Firebase project (for authentication)
-
 ### Quick Start
 
-````bash
-
 🎭 Component Highlights
+
 Theme Toggle - Animated dark/light mode switch
 
 Responsive Design - Mobile-friendly hamburger menu
@@ -111,8 +102,8 @@ User Authentication - Dynamic menu based on login status
 
 Smooth Animations - Framer Motion transitions
 
-
 ✨ Animated Banner
+
 Particle Background System - Interactive canvas animations
 
 Character Stagger Effects - Letter-by-letter text reveals
@@ -121,8 +112,8 @@ Gradient Text Animations - Dynamic color transitions
 
 Responsive Design - Mobile-optimized layouts
 
-
 💫 WhyChooseUs Section
+
 3D Card Animations - Hover transformations
 
 Glass Morphism Design - Modern translucent cards
@@ -131,8 +122,8 @@ Interactive Icons - Animated icon interactions
 
 Performance Optimized - Efficient re-renders
 
-
 Default Behavior
+
 First Visit: Light theme (user-friendly default)
 
 Toggle: Smooth transition between themes
@@ -141,15 +132,14 @@ Persistence: Remembers user's choice in localStorage
 
 System Preference: Can respect OS theme settings
 
-
 📱 Responsive Breakpoints
-Device	Breakpoint	Features
-📱 Mobile	< 640px	Simplified animations, touch-optimized
-📟 Tablet	640px - 1024px	Balanced animations and layout
-💻 Desktop	> 1024px	Full animations and effects
 
+Device Breakpoint Features 📱 Mobile < 640px Simplified animations,
+touch-optimized 📟 Tablet 640px - 1024px Balanced animations and layout 💻
+Desktop > 1024px Full animations and effects
 
 🚀 Performance Optimizations
+
 Lazy Loading - Components load on demand
 
 Animation Throttling - Reduced animations on mobile
@@ -160,9 +150,8 @@ Bundle Splitting - Code splitting for faster loads
 
 Image Optimization - Compressed assets and lazy loading
 
-
-
 🔐 Authentication Flow
+
 User Registration - Email/password with Firebase Auth
 
 Profile Management - Photo upload and user data
@@ -171,60 +160,26 @@ Protected Routes - Role-based access control
 
 Session Persistence - Automatic login state management
 
-
-
-🤝 Contributing
-We love contributions! Here's how you can help:
-
-Fork the repository
-
-Create a feature branch (git checkout -b feature/amazing-feature)
-
-Commit your changes (git commit -m 'Add amazing feature')
-
-Push to the branch (git push origin feature/amazing-feature)
-
-Open a Pull Request
-
-
-Development Guidelines
-Follow React best practices
-
-Use meaningful commit messages
-
-Test on multiple devices and browsers
-
-Ensure responsive design works correctly
-
-
-
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-
 👥 Team
+
 <div align="center">
 Made with ❤️ by Fuyad Hasan
 
 https://img.shields.io/badge/%F0%9F%8C%90_Portfolio-Visit-8B5CF6?style=for-the-badge
-https://img.shields.io/badge/%F0%9F%93%A7_Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white  :  fuyad.hasan9612@gmail.com
-https://img.shields.io/badge/%F0%9F%92%BB_GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white  :  https://github.com/11fuyad00
+https://img.shields.io/badge/%F0%9F%93%A7_Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white
+: fuyad.hasan9612@gmail.com
+https://img.shields.io/badge/%F0%9F%92%BB_GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white
+: https://github.com/11fuyad00
 
 </div>
 
-
-
-🙏 Acknowledgments
-Framer Motion - For incredible animation capabilities
+🙏 Acknowledgments Framer Motion - For incredible animation capabilities
 
 Tailwind CSS - For rapid UI development
 
 Firebase - For robust authentication and database
 
 React Community - For endless inspiration and support
-
-
 
 <div align="center">
 ⭐ Don't forget to star this repository if you found it helpful!
@@ -234,9 +189,7 @@ https://img.shields.io/github/stars/11fuyad00/freelance-marketplace?style=social
 
 </div> ```
 
-
 ## 🚀 Live Demo
 
-🌐 **Netlify:** [Click Here](https://freelance-marketplace-pro.netlify.app/)
-⚡ **Firebase:** [Click Here](https://freelance-marketplace-22602.web.app/)
-````
+🌐 **Netlify:** [Click Here](https://freelance-marketplace-pro.netlify.app/) ⚡
+**Firebase:** [Click Here](https://freelance-marketplace-22602.web.app/)
